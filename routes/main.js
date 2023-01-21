@@ -3,7 +3,9 @@ const router = express.Router()
 
 const {login, dashboard} = require("../controllers/main")
 
-router.get("/dashboard", dashboard)
+const authMidlleware = require("../middleware/auth")
+
+router.get("/dashboard",authMidlleware,dashboard)
 router.post("/login", login)
 
 
